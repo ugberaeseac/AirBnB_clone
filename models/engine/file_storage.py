@@ -3,6 +3,7 @@
 """
 
 import json
+from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -38,5 +39,8 @@ class FileStorage:
 
         with open(FileStorage.__objects, 'w') as f:
             json.dump(serialized_objects, f)
-
-        
+    
+    def reload(self):
+        """deserializes the JSON file to __objects (only if the JSON file exists"""
+        with open(FileStorage.__file_path) as f:
+            serialized_objects = json.loads(f)
