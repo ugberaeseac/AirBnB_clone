@@ -3,7 +3,6 @@
 """
 
 import json
-from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -15,4 +14,10 @@ class FileStorage:
     __objects: dictionary - empty but will store all objects by <class name>.id
 
     """
+    __file_path = file.json
+    __objects = {}
 
+    def all(self):
+        """Public instance method of class FileStorage that returns
+        the dictionary __objects"""
+        return FileStorage.__objects
