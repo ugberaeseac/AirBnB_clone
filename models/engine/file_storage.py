@@ -2,4 +2,17 @@
 """This module stores objects
 """
 
+import json
+from models.base_model import BaseModel
+
+
+class FileStorage:
+    """This class serializes instances to a JSON file and
+    deserializes JSON file to instances
+
+    Private class attributes:
+    __file_path: string - path to the JSON file
+    __objects: dictionary - empty but will store all objects by <class name>.id
+
+    """
 
