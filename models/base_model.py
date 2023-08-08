@@ -43,13 +43,12 @@ class BaseModel:
         of __dict__ of the instance
         """
         a_dict = {}
-        a_dict = self.__dict__
-        a_dict["__class___"] = self.__class__.__name_
+        a_dict["__class___"] = self.__class__.__name__
 
-        for key, value in a_dict.items():
+        for key, value in self.__dict__.items():
             if isinstance(value, datetime):
-                a_dict["key"] = value.isoformat()
+                a_dict[key] = value.isoformat()
             else:
-                a_dict["key"] = value
+                a_dict[key] = value
 
-        return (a_dict)     _
+        return (a_dict)
