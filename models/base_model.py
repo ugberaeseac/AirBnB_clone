@@ -15,13 +15,26 @@ class BaseModel:
     """
     Parent class for the AirBnB clone project
     """
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """
         Initialize public instance attributes
         """
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+        if kwargs:
+            for key, value in kwargs.items():
+                if key == "__class__":
+                    pass
+                elif key == "created_at":
+                    self.created_at = datetime.strptime(kwargs["created_at"],
+                                                        "%Y-%m-%dT%H:%M:%S.%f")
+                elif key == "updated_at":
+                    self.updated_at = datetime.strptime(kwargs["updated_at"],
+                                                        "%Y-%m-%dT%H:%M:%S.%f")
+                setattr(self, key, value)
+
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = datetime.now()
 
     def __str__(self):
         """
@@ -43,12 +56,12 @@ class BaseModel:
         of __dict__ of the instance
         """
         a_dict = {}
-        a_dict["__class___"] = self.__class__.__name__
 
         for key, value in self.__dict__.items():
             if isinstance(value, datetime):
                 a_dict[key] = value.isoformat()
             else:
                 a_dict[key] = value
+        a_dict["__class___"] = self.__class__.__name__
 
         return (a_dict)
