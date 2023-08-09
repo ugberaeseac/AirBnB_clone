@@ -21,7 +21,7 @@ class FileStorage:
     __objects: dictionary - empty but will store all objects by <class name>.id
 
     """
-    __file_path = file.json
+    __file_path = "file.json"
     __objects = {}
 
     def all(self):
@@ -36,21 +36,22 @@ class FileStorage:
 
     def save(self):
         """serializes __objects to the JSON file"""
-        objects_dict = FileStorage.__objects
-        serialized_objects = {}
-
-        for obj_key in objects_dict:
-            obj_instance = objects_dict[obj_key]
-            serialized_objects[obj_key] = obj_instance.to_dict()
-
-        with open(FileStorage.__objects, 'w') as f:
-            json.dump(serialized_objects, f)
+        object_dict = FileStorage.__objects
+        encoded_obj = {obj:object_dict[obj].to_dict() for obj in object_dict.keys()}
+        with open(FileStorage.__file_path, 'w') as f:
+            json.dump(encoded_obj, f)
     
     def reload(self):
         """deserializes the JSON file to __objects (only if the JSON file exists"""
-        with open(FileStorage.__file_path) as f:
-            serialized_objects =i json.loads(f)
-            for item in serialized_objects.values():
-                type = item["__class__"]
-                del item["__class__"]
+        try:
+            with open(FileStorage.__file_path, 'r') as f:
+                encoded_obj = json.load(f)
+
+                for item in encoded_obj.values():
+                    obj_type = item.get("__class__")
+                    if obj_type:
+                        del item["__class__"]
+                        self.new(eval(obj_type)(**item))
+        except FileNotFoundError:
+            pass
 
