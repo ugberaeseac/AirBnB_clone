@@ -47,11 +47,20 @@ class FileStorage:
             with open(FileStorage.__file_path, 'r') as f:
                 encoded_obj = json.load(f)
 
+                class_names = {
+                        "BaseModel": BaseModel,
+                        "User": User
+                }
+
                 for item in encoded_obj.values():
                     obj_type = item.get("__class__")
                     if obj_type:
                         del item["__class__"]
-                        self.new(eval(obj_type)(**item))
+                        class_type = class_names.get(obj_type)
+                        if class_type:
+                            self.new(class_type(**item))
+                        else:
+                            print(f"Unrecognized class type: {obj_type}")
         except FileNotFoundError:
             pass
 

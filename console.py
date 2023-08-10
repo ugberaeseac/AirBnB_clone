@@ -113,6 +113,13 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, args):
         """Prints all string representation of all instances based or
         not on the class name"""
+
+        cmd_args = args.split()
+
+        if len(cmd_args) == 0:
+            obj_list = []
+
+
         
         
 
