@@ -37,14 +37,15 @@ class FileStorage:
     def save(self):
         """serializes __objects to the JSON file"""
         object_dict = FileStorage.__objects
-        encoded_obj = {key: value.to_dict() for key, value in object_dict.items()}
-        with open(FileStorage.__file_path, 'w') as f:
-            json.dump(encoded_obj, f)
-    
+        en_obj = {key: value.to_dict() for key, value in object_dict.items()}
+        with open(FileStorage.__file_path, 'w', encoding='utf-8') as f:
+            json.dump(en_obj, f)
+
     def reload(self):
-        """deserializes the JSON file to __objects (only if the JSON file exists"""
+        """deserializes the JSON file to __objects (
+        only if the JSON file exists)"""
         try:
-            with open(FileStorage.__file_path, 'r') as f:
+            with open(FileStorage.__file_path, 'r', encoding='utf-8') as f:
                 encoded_obj = json.load(f)
 
                 class_names = {
@@ -63,4 +64,3 @@ class FileStorage:
                             print(f"Unrecognized class type: {obj_type}")
         except FileNotFoundError:
             pass
-

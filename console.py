@@ -28,7 +28,6 @@ class HBNBCommand(cmd.Cmd):
             "Review": Review
     }
 
-
     def emptyline(self):
         """Do nothing upon receiving an empty line."""
         pass
@@ -57,7 +56,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** class doesn't exist **")
 
-     
     def do_show(self, args):
         """ Prints the string representation of an instance based
         on the class name and id"""
@@ -109,23 +107,6 @@ class HBNBCommand(cmd.Cmd):
         else:
             del storage.all()[unique_key]
             storage.save()
-
-    def do_all(self, args):
-        """Prints all string representation of all instances based or
-        not on the class name"""
-
-        cmd_args = args.split()
-
-        if len(cmd_args) == 0:
-            obj_list = []
-
-
-        
-        
-
-
-        
-
 
 
 if __name__ == '__main__':

@@ -14,4 +14,3 @@ class State(BaseModel):
     Derived class State inherits from BaseModel
     """
     name = ""
-
