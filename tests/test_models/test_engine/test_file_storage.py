@@ -66,3 +66,38 @@ class TestFileStorage_methods(unittest.TestCase):
         with self.assertRaises(TypeError):
             models.storage.all(None)
 
+    def test_new(self):
+        bm = BaseModel()
+        us = User()
+        st = State()
+        plc = Place()
+        cty = City()
+        am = Amenity()
+        rev = Review()
+
+        models.storage.new(bm)
+        models.storage.new(us)
+        models.storage.new(st)
+        models.storage.new(plc)
+        models.storage.new(cty)
+        models.storage.new(am)
+        models.storage.new(rev)
+
+        self.verify_instance_added_to_storage(bm, "BaseModel")
+        self.verify_instance_added_to_storage(us, "User")
+        self.verify_instance_added_to_storage(st, "State")
+        self.verify_instance_added_to_storage(plc, "Place")
+        self.verify_instance_added_to_storage(cty, "City")
+        self.verify_instance_added_to_storage(am, "Amenity")
+        self.verify_instance_added_to_storage(rev, "Review")
+
+    def verify_instance_added_to_storage(self, instance, class_name):
+        key = f"{class_name}.{instance.id}"
+        self.assertIn(key, models.storage.all().keys())
+
+        self.assertIn(instance, models.storage.all().values())
+
+
+
+if __name__ == "__main__":
+    unittest.main()
