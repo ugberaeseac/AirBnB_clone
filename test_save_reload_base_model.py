@@ -14,4 +14,7 @@ my_model.name = "My_First_Model"
 my_model.my_number = 89
 my_model.save()
 print(my_model)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5b6394b1b6cba4efa3a1fdb312216958976e0965
