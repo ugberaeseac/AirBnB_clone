@@ -53,13 +53,13 @@ class Test_BaseModel(unittest.TestCase):
         self.assertTrue(hasattr(BaseModel, 'to_dict'))
 
     def test_sting_representation(self):
-        string = print(self.base)
-        self.assertIn([BaseModel], print(self.base))
+        self.assertIsInstance(self.__str__(), str)
 
     def test_to_dictionary(self):
         a_dict = self.base.to_dict()
         self.assertIsInstance(a_dict['created_at'], str)
         self.assertIsInstance(a_dict['updated_at'], str)
+        self.assertEqual(self.base.__class__.__name__, 'BaseModel')
 
 
 
