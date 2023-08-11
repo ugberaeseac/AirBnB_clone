@@ -163,8 +163,18 @@ class HBNBCommand(cmd.Cmd):
                 print("** value missing **")
                 return
 
+            attr_name =cmd_args[2]
+            attr_value = cmd_args[3]
 
-
+            if hasattr(obj, attr_name):
+                attr_type = type(getattr(obj, attr_name))
+                new_attr_value = attr_type(attr_value)
+                setattr(obj, attr_name, new_attr_value)
+                obj.save()
+            else:
+                print("** attribute doesn't exist **")
+        else:
+            print("** no instance found **")
 
 
 
