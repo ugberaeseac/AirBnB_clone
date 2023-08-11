@@ -12,7 +12,7 @@ import os
 
 class Test_BaseModel(unittest.TestCase):
     """
-    BaseMode; testcases class
+    BaseMode testcases class
     """
 
     def setUp(self):
@@ -26,7 +26,7 @@ class Test_BaseModel(unittest.TestCase):
             os.remove("file.json")
         except FileNotFoundError:
             pass
-    
+
     def test_instance_creation(self):
         self.assertIsInstance(self.base, BaseModel)
 
@@ -60,7 +60,6 @@ class Test_BaseModel(unittest.TestCase):
         self.assertIsInstance(a_dict['created_at'], str)
         self.assertIsInstance(a_dict['updated_at'], str)
         self.assertEqual(self.base.__class__.__name__, 'BaseModel')
-
 
 
 if __name__ == '__main__':
