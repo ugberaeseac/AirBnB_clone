@@ -1,9 +1,9 @@
-**AirBnB Console**
+# AirBnB Console
 
 Welcome to the AirBnB Console, a command-line interface
 for managing AirBnB-like objects!
 
-**Description**
+## Description**
 
 The AirBnB Console is a Python-based command interpreter that allows you to
 create, manage, and manipulate objects representing different components of
@@ -11,19 +11,18 @@ an AirBnB-like system. You can create and manage instances of various classes,
 perform CRUD(Create, Read, Update, Delete)operations, and
 interact with a JSON-based data storage system.
 
-**Command Interpreter**
+## Command Interpreter**
 
 **How to Start**
 
-1. Clone this repository to your local machine
+1.	Clone this repository to your local machine
+	git clone https: // github.com/your-username/AirBnB_clone.git
 
-git clone https: // github.com/your-username/AirBnB_clone.git
+2.	Navigate to the AirBnB_clone directory
+	cd AirBnB_clone
 
-2. Navigate to the AirBnB_clone directory
-cd AirBnB_clone
-
-3. cd AirBnB_clone
-./console.py
+3.	cd AirBnB_clone
+	./console.py
 
 
 **How to Use**

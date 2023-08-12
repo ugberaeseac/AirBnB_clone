@@ -43,8 +43,8 @@ class Test_Amenity(unittest.TestCase):
         self.assertTrue(hasattr(self.amenity, 'created_at'))
         self.assertTrue(hasattr(self.amenity, 'updated_at'))
 
-    def test_sting_representation(self):
-        self.assertIsInstance(self.__str__(), str)
+    def test_string_representation(self):
+        self.assertIsInstance(self.amenity.__str__(), str)
 
     def test_to_dictionary(self):
         a_dict = self.amenity.to_dict()
