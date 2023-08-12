@@ -57,7 +57,6 @@ class TestFileStorage_methods(unittest.TestCase):
             pass
         FileStorage._FileStorage__objects = {}
 
-
     def test_all_method_returns_dict(self):
         result = models.storage.all()
         self.assertEqual(dict, type(result))
@@ -96,7 +95,6 @@ class TestFileStorage_methods(unittest.TestCase):
         self.assertIn(key, models.storage.all().keys())
 
         self.assertIn(instance, models.storage.all().values())
-
 
 
 if __name__ == "__main__":

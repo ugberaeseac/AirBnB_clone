@@ -136,7 +136,6 @@ class HBNBCommand(cmd.Cmd):
     def do_update(self, args):
         """Updates an instance based on the class name and id by adding or
         updating attribute (save the change into the JSON file)"""
-        
         if args == "":
             print("** class name missing **")
             return
@@ -163,7 +162,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** value missing **")
                 return
 
-            attr_name =cmd_args[2]
+            attr_name = cmd_args[2]
             attr_value = cmd_args[3]
 
             if hasattr(obj, attr_name):
@@ -174,9 +173,6 @@ class HBNBCommand(cmd.Cmd):
 
         else:
             print("** no instance found **")
-
-
-
 
 
 if __name__ == '__main__':
