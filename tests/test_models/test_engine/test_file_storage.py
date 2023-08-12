@@ -133,8 +133,6 @@ class TestFileStorage_methods(unittest.TestCase):
             self.assertIn("Amenity." + am.id, save_text)
             self.assertIn("Review." + rev.id, save_text)
 
-            models.storage.save(None)
-
     def test_reload(self):
         bm = BaseModel()
         us = User()
