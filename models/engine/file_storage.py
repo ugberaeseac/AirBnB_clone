@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""This module stores objects
+"""
+Module: file_storage
+This module serializes python objects into JSON objects
+and deserialize them to python objects
 """
 
 import json
@@ -13,7 +16,8 @@ from models.review import Review
 
 
 class FileStorage:
-    """This class serializes instances to a JSON file and
+    """
+    This class serializes instances to a JSON file and
     deserializes JSON file to instances
 
     Private class attributes:
@@ -25,25 +29,33 @@ class FileStorage:
     __objects = {}
 
     def all(self):
-        """Public instance method of class FileStorage that returns
-        the dictionary __objects"""
+        """
+        Public instance method of class FileStorage that returns
+        the dictionary __objects
+        """
         return FileStorage.__objects
 
     def new(self, obj):
-        """sets in __objects the obj with key <obj class name>.id"""
+        """
+        sets in __objects the obj with key <obj class name>.id
+        """
         obj_class_name = obj.__class__.__name__
         FileStorage.__objects["{}.{}".format(obj_class_name, obj.id)] = obj
 
     def save(self):
-        """serializes __objects to the JSON file"""
+        """
+        serializes __objects to the JSON file
+        """
         object_dict = FileStorage.__objects
         en_obj = {key: value.to_dict() for key, value in object_dict.items()}
         with open(FileStorage.__file_path, 'w', encoding='utf-8') as f:
             json.dump(en_obj, f)
 
     def reload(self):
-        """deserializes the JSON file to __objects (
-        only if the JSON file exists)"""
+        """
+        deserializes the JSON file to __objects (
+        only if the JSON file exists)
+        """
         try:
             with open(FileStorage.__file_path, 'r', encoding='utf-8') as f:
                 encoded_obj = json.load(f)
