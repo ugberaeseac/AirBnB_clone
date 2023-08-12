@@ -50,7 +50,12 @@ class FileStorage:
 
                 class_names = {
                         "BaseModel": BaseModel,
-                        "User": User
+                        "User": User,
+                        "State": State,
+                        "Place": Place,
+                        "Amenity": Amenity,
+                        "City": City,
+                        "Review": Review
                 }
 
                 for item in encoded_obj.values():
