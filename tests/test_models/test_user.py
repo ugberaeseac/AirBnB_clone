@@ -49,7 +49,7 @@ class Test_User(unittest.TestCase):
         self.assertTrue(hasattr(self.user, 'created_at'))
         self.assertTrue(hasattr(self.user, 'updated_at'))
 
-    def test_sting_representation(self):
+    def test_string_representation(self):
         self.assertIsInstance(self.user.__str__(), str)
 
     def test_to_dictionary(self):

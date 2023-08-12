@@ -52,7 +52,7 @@ class Test_BaseModel(unittest.TestCase):
         self.assertTrue(hasattr(BaseModel, 'save'))
         self.assertTrue(hasattr(BaseModel, 'to_dict'))
 
-    def test_sting_representation(self):
+    def test_string_representation(self):
         self.assertIsInstance(self.base.__str__(), str)
 
     def test_to_dictionary(self):
