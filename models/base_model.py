@@ -15,12 +15,18 @@ import uuid
 class BaseModel:
     """
     Parent class for the AirBnB clone project
+
+    Methods:
+    __init__(self, *args, **kwargs)
+    __str__(self)
+    __save(self)
+    __repr__(self)
+    to_dict(self)
     """
+
     def __init__(self, *args, **kwargs):
         """
         Initialize public instance attributesi
-
-
         """
         if kwargs:
             for key, value in kwargs.items():
