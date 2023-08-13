@@ -6,6 +6,7 @@ contains parent class BaseModel
 contains public instance attributes and methods
 """
 
+
 import models
 from datetime import datetime
 import uuid
@@ -17,7 +18,9 @@ class BaseModel:
     """
     def __init__(self, *args, **kwargs):
         """
-        Initialize public instance attributes
+        Initialize public instance attributesi
+
+
         """
         if kwargs:
             for key, value in kwargs.items():
