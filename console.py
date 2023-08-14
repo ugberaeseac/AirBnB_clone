@@ -109,6 +109,10 @@ class HBNBCommand(cmd.Cmd):
             return
 
         cmd_args = args.split()
+
+        if len(cmd_args) < 2:
+            print("** instance id missing **")
+
         class_name = cmd_args[0]
 
         if class_name not in self.class_names:
