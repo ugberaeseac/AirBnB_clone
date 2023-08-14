@@ -11,7 +11,7 @@ from models.user import User
 import os
 
 
-class Test_User(unittest.TestCase):
+class TestUser(unittest.TestCase):
     """
     User testcases class
     """
@@ -50,7 +50,8 @@ class Test_User(unittest.TestCase):
         self.assertTrue(hasattr(self.user, 'updated_at'))
 
     def test_string_representation(self):
-        self.assertIsInstance(self.user.__str__(), str)
+        expected = "[User] ({}) {}".format(self.user.id, self.user.__dict__)
+        self.assertEqual(str(self.user), expected)
 
     def test_to_dictionary(self):
         a_dict = self.user.to_dict()
