@@ -109,7 +109,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
             return
 
-        cmd_args = shlex.split(arg)
+        cmd_args = args.split()
 
         if len(cmd_args) == 1:
             print("** instance id missing **")
@@ -125,7 +125,7 @@ class HBNBCommand(cmd.Cmd):
         unique_key = "{}.{}".format(class_name, obj_id)
         obj = storage.all().get(unique_key)
 
-        if unique_key not in storage.all():
+        if obj is None:
             print("** no instance found **")
         else:
             del storage.all()[unique_key]
