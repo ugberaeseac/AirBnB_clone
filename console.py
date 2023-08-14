@@ -13,6 +13,7 @@ from models.place import Place
 from models.amenity import Amenity
 from models.review import Review
 from models import storage
+import shlex
 
 
 class HBNBCommand(cmd.Cmd):
@@ -156,6 +157,7 @@ class HBNBCommand(cmd.Cmd):
                 obj_list.append(str(obj))
         print(obj_list)
 
+
     def do_update(self, args):
         """
         Updates an instance based on the class name and id by adding or
@@ -164,40 +166,46 @@ class HBNBCommand(cmd.Cmd):
         if args == "":
             print("** class name missing **")
             return
-        cmd_args = args.split()
+        cmd_args = shlex.split(args)
+        
         class_name = cmd_args[0]
-
-        if class_name not in self.class_names:
-            print("** class doesn't exist **")
-            return
-
-        if len(cmd_args) < 2:
-            print("** instance id missing **")
-            return
-
         obj_id = cmd_args[1]
         unique_key = "{}.{}".format(class_name, obj_id)
-        if unique_key in storage.all():
-            obj = storage.all()[unique_key]
 
-            if len(cmd_args) < 3:
-                print("** attribute name missing **")
-                return
-            if len(cmd_args) < 4:
-                print("** value missing **")
-                return
+        if class_name  not in self.class_names:
+            print("** class doesn't exist **")
+        elif len(cmd_args) == 1:
+            print("** instance id missing **")
+        elif unique_key not in storage.all():
+            print ("** no instance found **")
+        elif len(cmd_args) == 2:
+            print("** attribute name missing **")
+        elif len(cmd_args) == 3:
+            print("** value missing **")
+        else:
+            obj = storage.all().get(unique_key)
 
             attr_name = cmd_args[2]
             attr_value = cmd_args[3]
-
             if hasattr(obj, attr_name):
-                attr_type = type(getattr(obj, attr_name))
-                new_attr_value = attr_type(attr_value)
-                setattr(obj, attr_name, new_attr_value)
-                obj.save()
-
-        else:
-            print("** no instance found **")
+                try:
+                    if attr_value.isdigit():
+                        attr_value = int(attr_value)
+                    elif attr_value.replace('.', '', 1).isdigit():
+                        attr_value = float(attr_value)
+                except AttributeError:
+                    pass
+                setattr(obj, attr_name, attr_value)
+            else:
+                try:
+                    if attr_value.isdigit():
+                        attr_value = int(attr_value)
+                    elif attr_value.replace('.', '', 1).isdigit():
+                        attr_value = float(attr_value)
+                except AttributeError:
+                    pass
+                setattr(obj, attr_name, attr_value)
+            storage.save()
 
 
 if __name__ == '__main__':
