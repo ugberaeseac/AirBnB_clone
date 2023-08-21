@@ -72,9 +72,10 @@ section.filters button:hover {
 	opacity: 90%;
 }
 
+/* style locations and amenities */
 .locations {
 	border-right: 1px solid #DDDDDD;
-
+}
 .locations,
 .amenities {
 	height: 100%;
@@ -87,7 +88,7 @@ section.filters button:hover {
 	font-size: 18px;
 	text-align: left;
 	margin-top: 20px;
-	margin-left: 30px
+	margin-left: 30px;
 }
 .locations h4,
 .amenities h4 {
