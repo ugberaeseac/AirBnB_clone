@@ -1,0 +1,126 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* style filters */
+
+section.filters {
+        background-color: #FFFFFF;
+        height: 70px;
+        width: 100%;
+        border: 1px solid #DDDDDD;
+        border-radius: 4px;
+}
+
+section.filters button {
+	background-color: #FF5A5F;
+	color: #FFFFFF;
+	font-size: 18px;
+	height: 48px;
+	width: 20%;
+	border: 0;
+	border-radius: 4px;
+	float: right;
+	margin: 11px 30px;
+}
+section.filters button:hover {
+	opacity: 90%;
+}
+
+/* style locations and amenities */
+.locations {
+	border-right: 1px solid #DDDDDD;
+}
+.locations,
+.amenities {
+	height: 100%;
+	width: 25%;
+	float: left;
+}
+.locations h3,
+.amenities h3 {
+	font-weight: 600;
+	font-size: 18px;
+	text-align: left;
+	margin-top: 20px;
+	margin-left: 30px;
+}
+.locations h4,
+.amenities h4 {
+	font-weight: 400;
+	font-size: 14px;
+	text-align: left;
+	margin-top: 0;
+	margin-left: 30px;
+}
+
+/* style unordered list */
+.popover {
+	display: none;
+	background-color: #FAFAFA;
+	width: 100%;
+	border: 1px solid #DDDDDD;
+	border-radius: 4px;
+	float: left;
+}
+
+.popover h2 {
+	font-size: 16px;
+}
+
+li {
+	list-style-type: none;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+locations:hover .popover,
+amenities:hover .popover{
+	display: block;
+}
+
