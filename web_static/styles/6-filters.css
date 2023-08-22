@@ -88,7 +88,7 @@ section.filters button:hover {
 	font-size: 18px;
 	text-align: left;
 	margin-top: 20px;
-	margin-left: 30px;
+	margin-left: 50px;
 }
 .locations h4,
 .amenities h4 {
@@ -96,7 +96,7 @@ section.filters button:hover {
 	font-size: 14px;
 	text-align: left;
 	margin-top: 0;
-	margin-left: 30px;
+	margin-left: 50px;
 }
 
 /* style unordered list */
@@ -106,21 +106,28 @@ section.filters button:hover {
 	width: 100%;
 	border: 1px solid #DDDDDD;
 	border-radius: 4px;
-	float: left;
+	margin-top: 18px;
+	
 }
 
 .popover h2 {
 	font-size: 16px;
+	font-weight: 600;
+	margin-left: 0px;
 }
 
-li {
+.popover li {
 	list-style-type: none;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	margin-left: 30px;
 }
 
-locations:hover .popover,
-amenities:hover .popover{
+.popover ul {
+	margin-bottom: 30px;
+}
+
+.locations:hover .popover,
+.amenities:hover .popover{
 	display: block;
 }
-
